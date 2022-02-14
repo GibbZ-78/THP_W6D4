@@ -1,24 +1,15 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# THP W6D1 - The Return of the Gossip Project !
 
 Things you may want to cover:
 
-* Ruby version
+* Migrations, schema, seeds (not finished) and SQL script - See /db/
 
-* System dependencies
+* Corresponding models and relations - See /app/models/ 
 
-* Configuration
+* Configuration (incl. routes, database.yml initialized with PostegreSQL...) - See /config/
 
-* Database creation
+* Controllers - See /app/controllers/
 
-* Database initialization
+* Views and layouts - See /views/ sub-directories and /views/layout/ in particular for the header thing
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Enjoy, _wanderer_ :wink: !
