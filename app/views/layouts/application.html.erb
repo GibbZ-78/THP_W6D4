@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Gossip Project IV</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-current="page" href="#">THE GOSSIP PROJECT</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Gossips</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="<%=gossips_path%>">View all gossips</a></li>
+                <li><a class="dropdown-item" href="<%=new_gossip_path%>">Write a new gossip</a></li>
+                <li><a class="dropdown-item" href="/edit_gossip">Update an existing gossip</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Delete one of your gossips</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Admin</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/gossips">Manage gossips</a></li>
+                <li><a class="dropdown-item" href="/users">Manage users</a></li>
+                <li><a class="dropdown-item" href="/comments">Manage comments</a></li>
+                <li><a class="dropdown-item" href="/tags">Manage tags</a></li>
+                <li><a class="dropdown-item" href="/likes">Manage likes</a></li>
+                <li><a class="dropdown-item" href="/cities">Manage cities</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/team">Team</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/welcome/Jean-Baptiste" tabindex="-1" aria-disabled="true">Page 'Welcome'</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+    </header>
+    <%= yield %>
+    <footer>
+      <p>This is my footer</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </body>
+</html>
