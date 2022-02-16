@@ -2,11 +2,11 @@
 
 Things you may want to cover:
 
-* Migrations, schema, seeds (not finished) and SQL script - See /db/
+* Migrations, schema, seeds (WiP) and related SQL script (to delete table content easily despite constraints) - See /db/
 
 * Corresponding models and relations - See /app/models/ 
 
-* Configuration (incl. routes, database.yml initialized with PostegreSQL...) - See /config/
+* Configuration (incl. routes, database.yml initialized with PostegreSQL...) - See /related files in the /config/ directory
 
 * Controllers - See /app/controllers/
 

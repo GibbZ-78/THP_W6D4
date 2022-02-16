@@ -3,20 +3,25 @@ class GossipsController < ApplicationController
 
   # GET /gossips or /gossips.json
   def index
+    puts "*** JBV says: displaying the list of all gossips ***"
     @gossips = Gossip.all
   end
 
   # GET /gossips/1 or /gossips/1.json
   def show
+    # puts "*** JBV says: displaying information for gossip nr. #{params[:id]} ***"
+    # @gossips = Gossip.find(params[:id])
   end
 
   # GET /gossips/new
   def new
+    puts "*** JBV says: displaying the gossip creation page ***"
     @gossip = Gossip.new
   end
 
   # GET /gossips/1/edit
   def edit
+    # puts "*** JBV says: displaying the edition page for gossip nr. #{params[:id]} ***"
   end
 
   # POST /gossips or /gossips.json

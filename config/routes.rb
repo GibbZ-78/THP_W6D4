@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :cities
   resources :users
 
+  # JBV - Route (GET) to the root of the web site
+  get "/", to: 'gossips#index'
   
   # JBV - Route (GET) to the "team.html.erb" template - Page showing the team members
   get "/team", to: 'static_pages#team'

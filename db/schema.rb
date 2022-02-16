@@ -26,10 +26,10 @@ ActiveRecord::Schema.define(version: 2022_02_14_144456) do
     t.text "content"
     t.bigint "user_id"
     t.bigint "gossip_id"
-    t.bigint "comments_id"
+    t.bigint "comment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["comments_id"], name: "index_comments_on_comments_id"
+    t.index ["comment_id"], name: "index_comments_on_comment_id"
     t.index ["gossip_id"], name: "index_comments_on_gossip_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -56,10 +56,10 @@ ActiveRecord::Schema.define(version: 2022_02_14_144456) do
     t.string "like_type"
     t.bigint "user_id"
     t.bigint "gossip_id"
-    t.bigint "comments_id"
+    t.bigint "comment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["comments_id"], name: "index_likes_on_comments_id"
+    t.index ["comment_id"], name: "index_likes_on_comment_id"
     t.index ["gossip_id"], name: "index_likes_on_gossip_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
   end

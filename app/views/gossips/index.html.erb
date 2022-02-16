@@ -1,25 +1,35 @@
 <p id="notice"><%= notice %></p>
-
 <h1>Gossips</h1>
-
-<table>
+<br/>
+<%= link_to 'Create a new Gossip', new_gossip_path, class: "btn btn-sm btn-primary col-2 shadow" %>
+<br/>
+<table class="table table-striped table-hover table-sm table-responsive">
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th><i class="bi bi-list-ol"></i></th>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Author</th>
+      <th><i class="bi bi-bookmarks-fill"></i></th>
+      <th><i class="bi bi-chat-left-text"></i></th>
+      <th><i class="bi bi-hand-thumbs-up"></i></th>
+      <th colspan="3">Actions</th>
     </tr>
   </thead>
-
   <tbody>
     <% @gossips.each do |gossip| %>
       <tr>
-        <td><%= link_to 'Show', gossip %></td>
-        <td><%= link_to 'Edit', edit_gossip_path(gossip) %></td>
-        <td><%= link_to 'Destroy', gossip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=gossip.id%></td>
+        <td><%=gossip.title%></td>
+        <td><%=gossip.content%></td>
+        <td><%=gossip.user.first_name+" "+gossip.user.last_name%></td>
+        <td><%=gossip.tags.count%></td>
+        <td><%=gossip.comments.count%></td>
+        <td><%=gossip.likes.count%></td>
+        <td><%= link_to 'Details', gossip_path(gossip), class: "btn btn-sm btn-info shadow" %></td>
+        <td><%= link_to 'Edit', edit_gossip_path(gossip), class: "btn btn-sm btn-warning shadow" %></td>
+        <td><%= link_to 'Delete', gossip, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger shadow" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Gossip', new_gossip_path %>

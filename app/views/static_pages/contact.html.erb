@@ -1,2 +1,33 @@
-<h1>Contact</h1>
-<p>Hello! This is the contact page... The related form is a WIP ;-)</p>
+<h1>Contact us</h1>
+<section>
+  <p>Hi! This is the contact page... With its immuable form ;-)</p>
+</section>
+<section>
+  <form>
+    <div class="form-group">
+      <label for="contact_fname">First name: </label>
+      <input id="contact_fname" name="contact_fname" placeholder="Please enter your first name" />
+    </div>
+    <div class="form-group">
+      <label for="contact_lname">Last name: </label>
+      <input id="contact_lname" name="contact_lname" placeholder="Please enter your family name"/>
+    </div>
+    <div class="form-group">
+      <label for="contact_email">E-mail: </label>
+      <input class="form-control" id="contact_email" name="contact_email" placeholder="Please enter your e-mail address"/>
+      <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="contact_object">Object: </label>
+      <input id="contact_object" name="contact_object" placeholder="Please enter the reason you want to reach out to us"/>
+    </div>
+    <div class="form-group">
+      <label for="contact_text">Question / Suggestion: </label>
+      <textarea id="contact_text" name="contact_text" placeholder="Please type in your question(s) and/or suggestion(s)"></textarea>
+    </div>
+    <div class="form-group">
+      <input type="submit" class="btn btn-primary">
+      <input type="reset" class="btn btn-secondary">
+    </div>
+  </form>
+</section>
