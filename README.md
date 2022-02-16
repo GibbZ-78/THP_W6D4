@@ -1,4 +1,4 @@
-# THP W6D1 - The Return of the Gossip Project !
+# THP W6D3 - The Return of the revenge of the Gossip Project !
 
 Things you may want to cover:
 
@@ -10,6 +10,6 @@ Things you may want to cover:
 
 * Controllers - See /app/controllers/
 
-* Views and layouts - See /views/ sub-directories and /views/layout/ in particular for the header thing
+* Views and layouts - See /app/views/ sub-directories. In particular, /app/views/layout/ gathers the header / footer stuff
 
 Enjoy, _wanderer_ :wink: !
