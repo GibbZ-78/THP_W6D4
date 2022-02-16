@@ -18,14 +18,14 @@ puts "    - Gossips flushed"
 Tag.destroy_all
 puts "    - Tags flushed"
 GossipTag.destroy_all
-puts "    - Links between gossips ans tags flushed"
+puts "    - Links between gossips and tags flushed"
 Like.destroy_all
 puts "    - Likes flushed"
 Comment.destroy_all
 puts "    - Comments flushed"
 PrivateMessage.destroy_all
 puts "    - PrivateMessages flushed"
-puts "  > All aobjects destroyed successfully"
+puts "  > All objects destroyed successfully"
 puts "[DESTROY SECTION - END]"
 puts
 
@@ -38,19 +38,29 @@ puts "  > Populating 'cities'"
 	City.create(city_name: Faker::Address.city, 
               zip_code: Faker::Address.zip)
 end
+puts "    - Done populating 'cities'"
 
 # 02 - Populate 'users'
 puts "  > Populating 'users'"
-100.times do |n|
+100.times do
 	User.create(first_name: Faker::Name.first_name, 
               last_name: Faker::Name.last_name,
               nickname: Faker::Superhero.name,
               gender: Faker::Demographic.sex,
-              birthdate: Faker::Date.between(from: '1978-03-27', to: '2014-07-14'),
-              age: (Date.today.year - birthdate.year),
-              is_adult: (age>=18), 
-              city_id: my_cities[rand(0...my_cities.length)].id)
+              birthdate: Faker::Date.between(from: '1978-03-27', to: '2014-07-03'),
+              # age: (Date.today.year - self.birthdate.year),
+              # is_adult: (self.age>=18), 
+              city_id: City.all.sample.id)
 end
+
+puts "    - Done populating 'users' (main fields)"
+
+User.all.each do |my_user|
+  my_user.age = (Date.today.year - my_user.birthdate.year)
+  my_user.is_adult = (my_user.age >= 18)
+  my_user.save
+end
+puts "    - Done populating 'users' age and 'is_adult' boolean switch (computed)"
 
 # 03 - Populates 'my_private_messages'
 
