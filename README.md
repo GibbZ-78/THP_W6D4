@@ -6,7 +6,7 @@ Here below are some of the stuff you may want to cover while browsing this Ruby 
 
 * Migrations, schema, seeds and dedicated SQL script (to delete table content more easily despite constraints) - See _/db/_
 
-* Corresponding models and relations - See _/app/models/_
+* Corresponding models and relations - See _/app/models/_ and the data model pictured below mixing MCD, MLD and MPD
 
 * Configuration (incl. 'routes.rb', 'database.yml' initialized for PostegreSQL...) - See related files in the _/config/_ directory
 
@@ -18,3 +18,6 @@ Enjoy, _wanderer_ :wink: !
 
 ## Credits
 &copy; 2022 - Yassine ROCHD ([Github repo](https://github.com/YAROS31)) & Jean-Baptiste VIDAL ([Github repo](https://github.com/GibbZ-78))
+
+
+![Data model for The Gossip Project (JPEG)](db/TGP_IV_Data_Model_20220217.jpg?raw=true "Data model for The Gossip Project")
