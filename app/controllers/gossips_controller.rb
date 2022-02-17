@@ -10,7 +10,7 @@ class GossipsController < ApplicationController
   # GET /gossips/1 or /gossips/1.json
   def show
     # puts "*** JBV says: displaying information for gossip nr. #{params[:id]} ***"
-    # @gossips = Gossip.find(params[:id])
+    @gossip = Gossip.find(params[:id])
   end
 
   # GET /gossips/new
@@ -27,14 +27,14 @@ class GossipsController < ApplicationController
   # POST /gossips or /gossips.json
   def create
     @gossip = Gossip.new(gossip_params)
-
+    
     respond_to do |format|
       if @gossip.save
         format.html { redirect_to gossip_url(@gossip), notice: "Gossip was successfully created." }
-        format.json { render :show, status: :created, location: @gossip }
+        # format.json { render :show, status: :created, location: @gossip }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @gossip.errors, status: :unprocessable_entity }
+        # format.json { render json: @gossip.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -44,10 +44,10 @@ class GossipsController < ApplicationController
     respond_to do |format|
       if @gossip.update(gossip_params)
         format.html { redirect_to gossip_url(@gossip), notice: "Gossip was successfully updated." }
-        format.json { render :show, status: :ok, location: @gossip }
+        # format.json { render :show, status: :ok, location: @gossip }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @gossip.errors, status: :unprocessable_entity }
+        # format.json { render json: @gossip.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -58,7 +58,7 @@ class GossipsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to gossips_url, notice: "Gossip was successfully destroyed." }
-      format.json { head :no_content }
+      # format.json { head :no_content }
     end
   end
 
@@ -70,6 +70,7 @@ class GossipsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def gossip_params
-      params.fetch(:gossip, {})
+      # params.fetch(:gossip, {}).
+      params.require(:gossip).permit(:title, :content, :user_id)
     end
 end

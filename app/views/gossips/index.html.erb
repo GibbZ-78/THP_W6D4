@@ -1,5 +1,7 @@
-<p id="notice"><%= notice %></p>
-<h1>Gossips</h1>
+<%if notice%>
+  <p class="alert alert-warning alert-dismissible fade show" role="alert" id="notice"><%= notice %></p>
+<%end%>
+<h1>List of all gossips</h1>
 <br/>
 <%= link_to 'Create a new Gossip', new_gossip_path, class: "btn btn-sm btn-primary col-2 shadow" %>
 <br/>
@@ -26,9 +28,9 @@
         <td><%=gossip.tags.count%></td>
         <td><%=gossip.comments.count%></td>
         <td><%=gossip.likes.count%></td>
-        <td><%= link_to 'Details', gossip_path(gossip), class: "btn btn-sm btn-info shadow" %></td>
-        <td><%= link_to 'Edit', edit_gossip_path(gossip), class: "btn btn-sm btn-warning shadow" %></td>
-        <td><%= link_to 'Delete', gossip, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger shadow" %></td>
+        <td><%= link_to 'Details', gossip_path(gossip.id), method: :get, class: "btn btn-sm btn-info shadow" %></td>
+        <td><%= link_to 'Edit', edit_gossip_path(gossip.id), class: "btn btn-sm btn-warning shadow" %></td>
+        <td><%= link_to 'Delete', gossip_path(gossip.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger shadow" %></td>
       </tr>
     <% end %>
   </tbody>

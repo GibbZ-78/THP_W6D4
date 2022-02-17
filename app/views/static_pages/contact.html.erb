@@ -3,28 +3,33 @@
   <p>Hi! This is the contact page... With its immuable form ;-)</p>
 </section>
 <section>
-  <form>
+  <form class="col-3 m-3">
     <div class="form-group">
       <label for="contact_fname">First name: </label>
-      <input id="contact_fname" name="contact_fname" placeholder="Please enter your first name" />
+      <input id="contact_fname" name="contact_fname" class="form-control" placeholder="Please enter your first name" />
     </div>
+    <br/>
     <div class="form-group">
       <label for="contact_lname">Last name: </label>
-      <input id="contact_lname" name="contact_lname" placeholder="Please enter your family name"/>
+      <input id="contact_lname" name="contact_lname" class="form-control" placeholder="Please enter your family name"/>
     </div>
+    <br/>
     <div class="form-group">
       <label for="contact_email">E-mail: </label>
-      <input class="form-control" id="contact_email" name="contact_email" placeholder="Please enter your e-mail address"/>
+      <input id="contact_email" name="contact_email" class="form-control" placeholder="Please enter your e-mail address"/>
       <small class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
+    <br/>
     <div class="form-group">
       <label for="contact_object">Object: </label>
-      <input id="contact_object" name="contact_object" placeholder="Please enter the reason you want to reach out to us"/>
+      <input id="contact_object" name="contact_object" class="form-control" placeholder="Please enter the reason you want to reach out to us"/>
     </div>
+    <br/>
     <div class="form-group">
       <label for="contact_text">Question / Suggestion: </label>
-      <textarea id="contact_text" name="contact_text" placeholder="Please type in your question(s) and/or suggestion(s)"></textarea>
+      <textarea id="contact_text" name="contact_text" class="form-control" placeholder="Please type in your question(s) and/or suggestion(s)"></textarea>
     </div>
+    <br/>
     <div class="form-group">
       <input type="submit" class="btn btn-primary">
       <input type="reset" class="btn btn-secondary">

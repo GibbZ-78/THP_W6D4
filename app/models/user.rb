@@ -7,4 +7,9 @@ class User < ApplicationRecord
                            class_name: "PrivateMessage"         # 1 user can have sent 0..N messages
   has_many :received_messages, foreign_key: 'recipient_id', 
                                class_name: "PrivateMessage"     # 1 user can have received 0..N messages
+
+  def complete_name
+    "#{first_name.capitalize} #{last_name.upcase} (#{city.city_name}, #{city.zip_code})"
+  end
+
 end

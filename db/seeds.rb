@@ -79,9 +79,10 @@ puts "    - Done populating 'private messages' (main fields)"
 
 # Message nr. 1 is linked to no other message (first of the discussion)
 # NOTICE: uses first method to UPDATE applied to a 'PrivateMessage' object
-PrivateMessage.all[0].update(sender_id: User.all.first.id, 
-                             recipient_id: User.all.last.id, 
-                             previous_message_id: 0)                     
+PrivateMessage.update(PrivateMessage.all[0].id,
+                      sender_id: User.all.first.id, 
+                      recipient_id: User.all.last.id, 
+                      previous_message_id: 0)                     
 
 # Message nr. 2 is the answer of last user to 1st user
 # NOTICE: uses second method to UPDATE applied to the 'PrivateMessage' class + an object 'id'
@@ -92,15 +93,17 @@ PrivateMessage.update(PrivateMessage.all[1].id,
 
 # Message nr. 3 is the answer of 1st user to last user
 # NOTICE: uses update method nr. 1
-PrivateMessage.all[2].update(sender_id: User.all.first.id, 
-                             recipient_id: User.all.last.id, 
-                             previous_message_id: PrivateMessage.all[1].id)
+PrivateMessage.update(PrivateMessage.all[2].id,
+                      sender_id: User.all.first.id, 
+                      recipient_id: User.all.last.id, 
+                      previous_message_id: PrivateMessage.all[1].id)
 
 # Message nr. 4 is the beginning of a new message flow between 2nd user and last user
 # NOTICE: uses update method nr. 1
-PrivateMessage.all[3].update(sender_id: User.all[1].id, 
-                             recipient_id: User.all.last.id, 
-                             previous_message_id: 0)
+PrivateMessage.update(PrivateMessage.all[3].id,
+                      sender_id: User.all[1].id, 
+                      recipient_id: User.all.last.id, 
+                      previous_message_id: 0)
 
 # Message nr. 5 is the answer of last user to 2nd user
 # NOTICE: uses update method nr. 2
