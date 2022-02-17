@@ -28,11 +28,24 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/team">Team</a>
+              <a class="nav-link" href="<%=team_path%>">Team</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/contact">Contact</a>
+              <a class="nav-link" href="<%=contact_path%>">Contact</a>
             </li>
+            <% if session[:user_id].nil? %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Connection</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item btn btn-success" href="<%=sessions_new_path%>">Log In</a></li>
+                <li><a class="dropdown-item btn btn-primary" href="<%=new_user_path%>">Sign Up</a></li>
+              </ul>
+            </li>
+            <%elsif%>
+            <li class="nav-item">
+              <a class="nav-link btn-sm btn-danger mx-3" href="<%=sessions_delete_path%>">Log out</a> 
+            </li>
+            <%end%>
           </ul>
         </div>
       </nav>
@@ -47,6 +60,7 @@
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="<%=gossips_path%>">Manage gossips</a></li>
                 <li><a class="dropdown-item" href="<%=users_path%>">Manage users</a></li>
+                <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="<%=comments_path%>">Manage comments</a></li>
                 <li><a class="dropdown-item" href="<%=tags_path%>">Manage tags</a></li>
                 <li><a class="dropdown-item" href="<%=likes_path%>">Manage likes</a></li>

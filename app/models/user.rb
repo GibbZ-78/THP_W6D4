@@ -8,6 +8,9 @@ class User < ApplicationRecord
   has_many :received_messages, foreign_key: 'recipient_id', 
                                class_name: "PrivateMessage"     # 1 user can have received 0..N messages
 
+  has_secure_password                                           # Invoking the B-Crypt gem to hash user password
+  validates :password, presence: true, length: { minimum: 8 }   # Adding a "mandatory field" and a length constraint to the password
+
   def complete_name
     "#{first_name.capitalize} #{last_name.upcase} (#{city.city_name}, #{city.zip_code})"
   end

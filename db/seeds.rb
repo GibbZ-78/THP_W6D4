@@ -45,23 +45,53 @@ puts "    - Done populating 'cities'"
 #########################
 # 02 - Populate 'users' #
 #########################
-puts "  > Populating 'users'"
-50.times do
+puts "  > Populating 'users' (including their encrypted password - Set to 'TGP_2022' by default - with a min length of 8 chars)"
+49.times do
 	User.create(first_name: Faker::Name.first_name.capitalize, 
               last_name: Faker::Name.last_name.upcase,
               nickname: Faker::Superhero.name,
               gender: Faker::Demographic.sex,
               birthdate: Faker::Date.between(from: '1978-03-27', to: '2014-07-03'),
-              city_id: City.all.sample.id)
+              city_id: City.all.sample.id,
+              email: Faker::Internet.safe_email,    # JBV 2022.02.17 - Added a super disruptive feature I forgot : e-mail address [Shame]
+              is_admin: false,                      # JBV 2022.02.17 - Added admin profile(s) management
+              password: "TGP_2022")                 # JBV 2022.02.17 - Added users' password management (+ its encryption)
 end
-puts "    - Done populating 'users' (main fields)"
+puts "    - Done populating 'users' (main fields, incl. password)"
 
 User.all.each do |my_user|
-  my_user.age = (Date.today.year - my_user.birthdate.year)
-  my_user.is_adult = (my_user.age >= 18)
-  my_user.save
+  tmp_age = Date.today.year.to_i - my_user.birthdate.year.to_i
+  tmp_adult = (tmp_age < 18 ? false : true)
+  print "[UID: #{my_user.id} | AGE: #{tmp_age} | ADULT: #{tmp_adult}] "
+  my_user.update!(age: tmp_age, is_adult: tmp_adult, password: "TGP_2022")    #JBV - WARNING: was forced to add ':password' for the 'update' to complete successfully...
 end
+puts
 puts "    - Done populating 'users' age and 'is_adult' boolean switch (computed)"
+
+User.create(first_name: "Jean-Baptiste", 
+            last_name: "VIDAL",
+            nickname: "GibbZ",
+            gender: "Male",
+            birthdate: "1978-03-27",
+            city_id: City.all.sample.id,
+            email: "jb.vidal@gmail.com",
+            age: 43,
+            is_adult: true,
+            is_admin: true,
+            password: "TGP_2022")
+
+User.create(first_name: "Yassine", 
+            last_name: "ROCHD",
+            nickname: "Yaro31",
+            gender: "Male",
+            birthdate: "1995-01-01",
+            city_id: City.all.sample.id,
+            email: "yassine.rochd@gmail.com",
+            age: 27,
+            is_adult: true,
+            is_admin: true,
+            password: "TGP_2022")
+puts "    - Done populating 2 admin 'users' >> GibbZ & Yaro31"
 
 #####################################
 # 03 - Populates 'private_messages' #
