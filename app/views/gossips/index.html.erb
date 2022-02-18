@@ -19,7 +19,10 @@
     </tr>
   </thead>
   <tbody>
-    <% @gossips.each do |gossip| %>
+    <%@gossips.each do |gossip| 
+        tmp_bool = session[:admin] || (gossip.user_id == session[:user_id])
+        admin_or_author = tmp_bool ? "" : " disabled"
+    %>
       <tr>
         <td><%=gossip.id%></td>
         <td><%=gossip.title%></td>
@@ -29,8 +32,8 @@
         <td><%=gossip.comments.count%></td>
         <td><%=gossip.likes.count%></td>
         <td><%= link_to 'Details', gossip_path(gossip.id), method: :get, class: "btn btn-sm btn-info shadow" %></td>
-        <td><%= link_to 'Edit', edit_gossip_path(gossip.id), class: "btn btn-sm btn-warning shadow" %></td>
-        <td><%= link_to 'Delete', gossip_path(gossip.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger shadow" %></td>
+        <td><%= link_to 'Edit', edit_gossip_path(gossip.id), class: "btn btn-sm btn-warning shadow#{admin_or_author}" %></td>
+        <td><%= link_to 'Delete', gossip_path(gossip.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger shadow#{admin_or_author}" %></td>
       </tr>
     <% end %>
   </tbody>

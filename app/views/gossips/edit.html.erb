@@ -1,4 +1,8 @@
-<h1>Editing Gossip</h1>
+<%if notice%>
+  <p class="alert alert-warning alert-dismissible fade show" role="alert" id="notice"><%= notice %></p>
+<%end%>
+<section class="mx-5 my-5 col-6">
+  <h1>Editing Gossip</h1>
 
 <%= render 'form', gossip: @gossip %>
 

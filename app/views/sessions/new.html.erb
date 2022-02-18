@@ -1,22 +1,27 @@
-<h1>Log in form</h1>
-
-<form action="" method="POST" class="">
-  <div class="form-group">
-    <label for="my_email">User ID / E-mail</label>
-    <input name="my_email" id="my_email" type="email" placeholder="Enter your e-mail address"/>
-  </div>
+<%if notice%>
+  <p class="alert alert-warning alert-dismissible fade show" role="alert" id="notice"><%= notice %></p>
+<%end%>
+<section class="mx-5 my-5 col-3">
+  <h1>Log-in form</h1>
+  <form action="<%=sessions_create_path%>" method="POST">
+    <div class="form-group">
+      <label for="my_email">User ID / E-mail</label>
+      <input name="my_email" id="my_email" type="email" class="form-control" placeholder="Enter your e-mail address"/>
+    </div>
+    <br/>
+    <div class="form-group">
+      <label for="my_password">Password</label>
+      <input name="my_password" id="my_password" type="password" class="form-control" placeholder="Enter your password"/>
+    </div>
+    <br/>
+    <div class="form-group">
+      <input type="submit" class="btn-sm btn-primary" value="Log in"/>
+      <input type="reset" class="btn-sm btn-secondary" value="Reset form"/>
+    </div>
+    <input type="hidden" name="authenticity_token" value="sessions_create_post_action_token">
+  </form>
   <br/>
-  <div class="form-group">
-    <label for="my_password">Password</label>
-    <input name="my_password" id="my_password" type="email" placeholder="Enter your password"/>
-  </div>
+  <hr/>
   <br/>
-  <div class="form-group">
-    <input type="submit" class="btn-sm btn-primary" value="Log in"/>
-    <input type="reset" class="btn-sm btn-secondary" value="Reset form"/>
-  </div>
-</form>
-<br/>
-<hr/>
-<br/>
-<a href="<%=sessions_create_path%>">Aller vers la création</a>
+<a class="text-white" href="<%=sessions_create_path%>">To the #create method (if eveer needed...)</a>
+</section>

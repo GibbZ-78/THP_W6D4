@@ -1,5 +1,9 @@
-<h1>Gossip creation</h1>
-<br/>
+<%if notice%>
+  <p class="alert alert-warning alert-dismissible fade show" role="alert" id="notice"><%= notice %></p>
+<%end%>
+<section class="mx-5 my-5 col-6">
+  <h1>Gossip creation</h1>
+
 <%= render 'form', gossip: @gossip %>
 
 <%= link_to 'Back', gossips_path %>

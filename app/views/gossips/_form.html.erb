@@ -26,7 +26,7 @@
       <% User.all.each do |my_user| %>
         <%if my_user.id == gossip.user_id%>
           <option value="<%=my_user.id%>" selected><%=my_user.complete_name%></option>
-        <%elsif%>
+        <%else%>
           <option value="<%=my_user.id%>"><%=my_user.complete_name%></option>
         <%end%>
       <%end%>
@@ -37,3 +37,4 @@
     <%= form.submit "Proceed", class: "btn btn-primary"%>
   </div>
 <% end %>
+</section>

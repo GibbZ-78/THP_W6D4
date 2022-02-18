@@ -4,15 +4,15 @@ class GossipsController < ApplicationController
 
   # GET /gossips
   def index
-    # unless !session[:user_id].nil?
-    #   flash[:danger] = "Please log in."
-    #   puts "*** TGP says: Session token is null, user has to connect first ***"
-    #   redirect_to sessions_new_path
-    # else
-      # puts "*** TGP says: Session token not null ***"
+    if session[:user_id].nil?
+      flash[:danger] = "Please log in."
+      puts "*** TGP says: Session token is null, user has to connect first ***"
+      redirect_to sessions_new_path
+    else
+      puts "*** TGP says: Session token not null ***"
       puts "*** TGP says: displaying the list of all gossips (INDEX) ***"
       @gossips = Gossip.all
-    # end
+    end
   end
 
   # GET /gossips/1

@@ -1,5 +1,59 @@
-<h1>New User</h1>
+<section class="mx-5 my-5 col-6">
+  <h1>Account creation form</h1>
+  <form action="<%=users_path%>" method="POST" autocomplete="on">
+    <div class="container">
+      <div class="form-group my-1">
+        <label for="my_first_name">First name</label>
+        <input name="my_first_name" id="given-name" type="text" class="form-control" placeholder="Enter your given name"/>
+      </div>
+      <div class="form-group my-1">
+        <label for="my_last_name">Last name</label>
+        <input name="my_last_name" id="family-name" type="text" class="form-control" placeholder="Enter your family name"/>
+      </div>
+      <div class="form-group my-1">
+        <label for="my_nickname">Nickname</label>
+        <input name="my_nickname" id="nickname" type="text" class="form-control" placeholder="Enter your surname"/>
+      </div>
+      <div class="form-group my-1">
+        <label for="my_email">User ID / E-mail</label>
+        <input name="my_email" id="my_email" type="email" class="form-control" placeholder="Enter your e-mail address"/>
+      </div>
+      <div class="form-group my-1">
+        <label for="my_password">Password</label>
+        <input name="my_password" id="my_password" type="password" class="form-control" placeholder="Enter your password"/>
+      </div>
+      <div class="custom-radio custom-control-inline my-1">
+        <input type="radio" value="Female" id="customRadioInline1" name="my_gender" class="custom-control-input">
+        <label class="custom-control-label" for="customRadioInline1">Female</label>
+        <input type="radio" value="Male" id="customRadioInline2" name="my_gender" class="custom-control-input">
+        <label class="custom-control-label" for="customRadioInline2">Male</label>
+      </div>
+      <div class="form-group my-1">
+        <label for="my_birthdate">Date of birth</label>
+        <input name="my_birthdate" id="my_birthdate" type="date" class="form-control" placeholder="Select a day, month and year"/>
+      </div>
+      <div class="form-group my-1">
+        <label for="my_city_id">Location</label>
+        <select name="my_city_id" id="user_city_id" class="selectpicker show-menu-arrow">
+          <option value="">Please select the city you live in</option>
+          <% City.all.each do |my_village| %>
+          <option value="<%=my_village.id%>"><%="#{my_village.city_name} (#{my_village.zip_code})"%></option>
+          <%end%>
+        </select>
+      </div>
+      <br/>
+      <div class="form-group my-1">
+        <input type="submit" class="btn-sm btn-primary" value="Sign up"/>
+        <input type="reset" class="btn-sm btn-secondary" value="Reset form"/>
+      </div>
+    </div>
+    <input type="hidden" name="authenticity_token" value="users_create_post_action_token">
+  </form>
+  <br/>
+  <hr/>
+  <br/>
+  <a class="text-white" href="<%=sessions_create_path%>">To the #create method (if eveer needed...)</a>
+  <%= link_to 'Back to the main page', gossips_path %>
+</section>
 
-<%= render 'form', user: @user %>
 
-<%= link_to 'Back', users_path %>
